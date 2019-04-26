@@ -1,5 +1,5 @@
 # CoinApp
-CryptoCurrency test application
+<b>CryptoCurrency test application</b>
 
 The app has following packages:
 
@@ -20,7 +20,9 @@ network: Services for the application.
 utils: Utility classes.
 
 
-Library reference resources:
+
+
+<b>Library reference resources:</b>
 
 Retrofit:  http://square.github.io/retrofit/
 
