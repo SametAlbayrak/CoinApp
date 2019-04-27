@@ -26,6 +26,7 @@ public interface HomeContract {
         void onSetRefreshLayoutListener();
 
         void onSetInitialRequest();
+
     }
 
     interface Presenter {
@@ -37,6 +38,8 @@ public interface HomeContract {
         void setRefreshLayoutListener();
 
         void setInitialRequest();
+
+        void clearCurrencyList();
 
     }
 }

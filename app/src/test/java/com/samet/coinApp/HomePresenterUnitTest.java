@@ -1,7 +1,6 @@
 package com.samet.coinApp;
 
 
-import com.samet.coinApp.RxJavaSchedulers;
 import com.samet.coinApp.ui.home.HomeContract;
 import com.samet.coinApp.ui.home.HomePresenter;
 
@@ -20,12 +19,11 @@ import java.io.IOException;
 import okhttp3.mockwebserver.MockWebServer;
 
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 
 
 @RunWith(PowerMockRunner.class)
 @PowerMockIgnore({"javax.net.ssl.*"})
-public class HomeFragmentPresenterTest {
+public class HomePresenterUnitTest {
 
     @Mock
     private HomeContract.View view;
@@ -38,7 +36,7 @@ public class HomeFragmentPresenterTest {
     }
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
         mockWebServer = new MockWebServer();
         presenter = spy(new HomePresenter());
@@ -53,8 +51,6 @@ public class HomeFragmentPresenterTest {
 
   /*  @Test
     public void getCurrencies(String start, String limit) throws Exception {
-
-
         presenter.
         verify(presenter, times(1)).setNameResponse(any(EmptyResponse.class));
     }
@@ -64,31 +60,10 @@ public class HomeFragmentPresenterTest {
     void getCurrencyIconList(final List<Data> cList) throws Exception {
         Info infoResponse = new Info();
         verify(view, times(1)).setAdapterItemList(infoResponse);
-    }
-
-    @Test
-    public void setNameResponse() throws Exception {
-        EmptyResponse emptyResponse = new EmptyResponse();
-        presenter.setNameResponse(emptyResponse);
-        verify(view, times(1)).onGetAccountChangeNameService(emptyResponse);
-    }
-
-
-    @Test
-    public void hideAccountNameErrorViews() throws Exception {
-        presenter.hideAccountNameErrorViews();
-        verify(view, times(1)).onHideAccountAlertView();
-    }
-
-    @Test
-    public void showAccountNameErrorViews() throws Exception {
-        presenter.showAccountNameErrorViews();
-        verify(view, times(1)).onShowAccountAlertView();
     }*/
 
-
     @Test
-    public void dropView() throws Exception {
+    public void dropView() {
         presenter.dropView();
         Assert.assertNotNull(view);
     }

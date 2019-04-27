@@ -22,7 +22,7 @@ import com.samet.coinApp.listeners.OnLoadMoreListener;
 import com.samet.coinApp.models.Data;
 import com.samet.coinApp.models.Info;
 import com.samet.coinApp.ui.detail.DetailFragment;
-import com.samet.coinApp.util.ActivityUtils;
+import com.samet.coinApp.util.FragmentTransactionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,8 +72,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
 
     @Override
     public void onSetRefreshLayoutListener() {
-        swipeRefreshLayout.setOnRefreshListener(() ->
-                mPresenter.getCurrencies(Constant.FETCH_START, Constant.FETCH_LIMIT));
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+
+            mPresenter.clearCurrencyList();
+            mPresenter.getCurrencies(Constant.FETCH_START, Constant.FETCH_LIMIT);
+        });
     }
 
     @Override
@@ -86,7 +89,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
 
     @Override
     public void setRefresing() {
-
         swipeRefreshLayout.setRefreshing(false);
     }
 
@@ -96,9 +98,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
         ccList.addAll(currencyList);
         adapter.updateData(ccList, info.getData());
         adapter.setLoaded();
-        //    adapter.getCryptoListIcons().clear();
-        //   adapter.getCryptoListIcons().putAll(info.getData());
-        //   adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -148,7 +147,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
         bundle.putSerializable(Constant.BUNDLE_DETAIL_KEY, data);
         bundle.putString(Constant.BUNDLE_IMAGE_URL, imgUrl);
         detailFragment.setArguments(bundle);
-        ActivityUtils.replaceFragmentToActivity(getActivity(),
+        FragmentTransactionUtils.addFragmentToActivity(getActivity(),
                 detailFragment, R.id.fl_fragment_container, true, true);
     }
 

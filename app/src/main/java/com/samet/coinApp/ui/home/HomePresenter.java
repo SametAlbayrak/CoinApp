@@ -24,15 +24,17 @@ import io.reactivex.schedulers.Schedulers;
 @Singleton
 public class HomePresenter extends AbstractPresenter<HomeContract.View> implements HomeContract.Presenter {
 
-    private String TAG = "HomePresenter";
-    private List<Data> currencyList = new ArrayList<>();
 
     @Inject
     APIClient apiClient;
 
+    private String TAG = "HomePresenter";
+    private List<Data> currencyList = new ArrayList<>();
+
+
     @Inject
     public HomePresenter() {
-        //Nothing is done in this constructor
+        //empty constructor
     }
 
     @Override
@@ -52,9 +54,7 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
                     @Override
                     public void onNext(CryptoList cryptoList) {
                         if (getView() == null) return;
-                        // Log.d(TAG, "OnNext" + cryptoList.getTotalResults());
-                        //   currencyList = new ArrayList<>();
-                        //  currencyList.clear();
+
                         currencyList.addAll(cryptoList.getData());
                         getCurrencyIconList(currencyList);
                     }
@@ -69,7 +69,6 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
                     @Override
                     public void onComplete() {
                         Log.d(TAG, "Completed");
-                        //   getView().hideProgressBar();
                         getView().setRefresing();
                     }
                 });
@@ -85,7 +84,6 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
                 .subscribe(new Observer<Info>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        //  getView().showProgressBar();
                     }
 
                     @Override
@@ -124,12 +122,17 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
     }
 
     @Override
+    public void clearCurrencyList() {
+        currencyList.clear();
+    }
+
+    @Override
     public void initViews() {
         if (getView() == null) return;
         getView().onInitViews();
     }
 
-    public String prepareCurrencySymbols() {
+    private String prepareCurrencySymbols() {
         String sep = ",";
         StringBuilder stringBuilder = new StringBuilder();
         for (Data dt : currencyList) {

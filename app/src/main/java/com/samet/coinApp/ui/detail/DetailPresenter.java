@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 public class DetailPresenter extends AbstractPresenter<DetailContract.View> implements DetailContract.Presenter {
 
     @Inject
-    DetailPresenter() {
+    public DetailPresenter() {
         //Nothing is done in this constructor
     }
 

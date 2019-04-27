@@ -14,7 +14,8 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:scaleType="centerInside" />
+        android:contentDescription="@string/image_content_description"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/tvName"

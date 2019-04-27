@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.samet.coinApp.ui.home.HomeFragment;
-import com.samet.coinApp.util.ActivityUtils;
+import com.samet.coinApp.util.FragmentTransactionUtils;
 
 import butterknife.ButterKnife;
 import dagger.android.support.DaggerAppCompatActivity;
@@ -20,7 +20,7 @@ public class MainActivity extends DaggerAppCompatActivity {
     }
 
     public void openFragment() {
-        ActivityUtils.replaceFragmentToActivityWithCustomAnimation(this,
+        FragmentTransactionUtils.replaceFragmentToActivityWithCustomAnimation(this,
                 new HomeFragment(), R.id.fl_fragment_container, R.anim.slide_enter_in, R.anim.slide_enter_out);
     }
 
