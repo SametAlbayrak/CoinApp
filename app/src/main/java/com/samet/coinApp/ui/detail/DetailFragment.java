@@ -53,14 +53,14 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_details, container, false);
         ButterKnife.bind(this, root);
-        mPresenter.takeView(this); // to initialize view for presenter
+        mPresenter.takeView(this);
         return root;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        onGetArguments();
+        mPresenter.getArguments();
     }
 
 
@@ -69,29 +69,27 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
         if (getArguments() == null) return;
         data = (Data) getArguments().get(Constant.BUNDLE_DETAIL_KEY);
         imgUrl = getArguments().getString(Constant.BUNDLE_IMAGE_URL);
+        if (data != null)
+            mPresenter.setDetails();
 
-        if (data != null) {
-            setDetails();
-        }
     }
 
 
-    public void setDetails() {
+    @Override
+    public void onSetDetails() {
         if (getContext() != null)
             Glide.with(getContext()).load(imgUrl).into(coinImage);
-        detailView1.setLeftText(data.getSymbol() +"price :");
+        detailView1.setLeftText(data.getSymbol() + getString(R.string.coin_price));
         detailView1.setRightTextView(String.valueOf(data.getQuote().getUSD().getPrice()));
 
         detailView2.setRightTextView(String.valueOf(data.getQuote().getUSD().getVolume24h()));
-        detailView2.setLeftText("Hacim");
+        detailView2.setLeftText(getString(R.string.coin_volume));
 
-        detailView3.setLeftText("Total Supply");
+        detailView3.setLeftText(getString(R.string.coin_total_suply));
         detailView3.setRightTextView(String.valueOf(data.getTotalSupply()));
 
-        detailView4.setLeftText("Market Pairs:");
+        detailView4.setLeftText(getString(R.string.coin_market_pairs));
         detailView4.setRightTextView(String.valueOf(data.getNumMarketPairs()));
-
-
         tvName.setText(data.getName());
     }
 

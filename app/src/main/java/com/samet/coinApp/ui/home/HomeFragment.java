@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +32,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class HomeFragment extends BaseFragment implements HomeContract.View, OnLoadMoreListener, OnItemClickListener {
+public class HomeFragment extends BaseFragment implements HomeContract.View,
+        OnLoadMoreListener,
+        OnItemClickListener {
 
     @Inject
     HomePresenter mPresenter;
@@ -48,7 +49,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
     SwipeRefreshLayout swipeRefreshLayout;
 
     HomeCoinAdapter adapter;
-
     List<Data> ccList;
 
     @Nullable
@@ -73,7 +73,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
     @Override
     public void onSetRefreshLayoutListener() {
         swipeRefreshLayout.setOnRefreshListener(() -> {
-
             mPresenter.clearCurrencyList();
             mPresenter.getCurrencies(Constant.FETCH_START, Constant.FETCH_LIMIT);
         });
@@ -103,15 +102,15 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
     @Override
     public void onInitViews() {
         rvMovies.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new HomeCoinAdapter(getContext(), rvMovies); //currencyList,
+        adapter = new HomeCoinAdapter(getContext(), rvMovies);
         adapter.setOnLoadMoreListener(this);
         adapter.setOnItemClickListener(this);
         rvMovies.setAdapter(adapter);
     }
 
     @Override
-    public void showToast(String str) {
-        Toast.makeText(getContext(), str, Toast.LENGTH_LONG).show();
+    public void showToast(String message) {
+        Toast.makeText(getContext(), message , Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -132,12 +131,9 @@ public class HomeFragment extends BaseFragment implements HomeContract.View, OnL
     @Override
     public void onLoadMore() {
         if (ccList.size() <= Constant.MAX_COIN_SIZE) {
-            Log.v("girdi", "onload more: ");
-
-            //      swipeRefreshLayout.setRefreshing(true);
             mPresenter.getCurrencies(String.valueOf(ccList.size() + 1), Constant.FETCH_LIMIT);
         } else
-            Log.d("Home", "onLoadMore: ");
+            displayError(getString(R.string.error_reached_max_coin_size));
     }
 
     @Override

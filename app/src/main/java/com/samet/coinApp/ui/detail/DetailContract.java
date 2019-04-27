@@ -5,9 +5,16 @@ public interface DetailContract {
     interface View {
         void onGetArguments();
 
+        void onSetDetails();
+
+
     }
 
     interface Presenter {
+
+        void setDetails();
+
+        void getArguments();
     }
 
 }

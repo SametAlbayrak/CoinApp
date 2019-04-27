@@ -3,4 +3,12 @@
 
     <string name="image_content_description">CryptoCurrency image</string>
 
+    <string name="error_reached_max_coin_size"> Hata maksimum coin sayisina ulasildi. </string>
+    <string name="error_image_service_error"> coin ikonları çekilirken bir hata oluştu. </string>
+
+    <string name="coin_price">&#160;price : </string>
+    <string name="coin_volume">Volume : </string>
+    <string name="coin_total_suply">Total Supply : </string>
+    <string name="coin_market_pairs">Market Pairs : </string>
+
 </resources>

@@ -11,7 +11,18 @@ public class DetailPresenter extends AbstractPresenter<DetailContract.View> impl
 
     @Inject
     public DetailPresenter() {
-        //Nothing is done in this constructor
+        //emtpy constructor
     }
 
+    @Override
+    public void setDetails() {
+        if (getView() == null) return;
+        getView().onSetDetails();
+    }
+
+    @Override
+    public void getArguments() {
+        if (getView() == null) return;
+        getView().onGetArguments();
+    }
 }

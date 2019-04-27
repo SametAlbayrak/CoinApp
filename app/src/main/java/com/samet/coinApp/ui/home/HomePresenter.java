@@ -20,17 +20,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-
 @Singleton
 public class HomePresenter extends AbstractPresenter<HomeContract.View> implements HomeContract.Presenter {
-
 
     @Inject
     APIClient apiClient;
 
     private String TAG = "HomePresenter";
     private List<Data> currencyList = new ArrayList<>();
-
 
     @Inject
     public HomePresenter() {
@@ -63,7 +60,7 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
                     public void onError(Throwable e) {
                         Log.d(TAG, "Error" + e);
                         e.printStackTrace();
-                        getView().displayError("Error fetching Curencies Data Data");
+                        getView().displayError("coin datası çekilirken bir hata oluştu!");
                     }
 
                     @Override
@@ -95,7 +92,7 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
                     @Override
                     public void onError(Throwable e) {
                         Log.d(TAG, "Error" + e);
-                        getView().displayError("Error fetching currency image service data");
+                        getView().displayError("coin iconları çekilirken hata oluştu!");
                     }
 
                     @Override
@@ -132,7 +129,8 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
         getView().onInitViews();
     }
 
-    private String prepareCurrencySymbols() {
+    @Override
+    public String prepareCurrencySymbols() {
         String sep = ",";
         StringBuilder stringBuilder = new StringBuilder();
         for (Data dt : currencyList) {

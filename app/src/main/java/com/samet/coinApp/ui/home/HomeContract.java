@@ -41,5 +41,8 @@ public interface HomeContract {
 
         void clearCurrencyList();
 
+        String prepareCurrencySymbols();
+
+
     }
 }
