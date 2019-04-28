@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 public interface APIService {
 
     @GET("/v1/cryptocurrency/listings/latest?")
-    Observable<CryptoList> getMarketPairsLatest(@Query("start") String start, @Query("limit") String limit);
+    Observable<CryptoList> getListLatest(@Query("start") String start, @Query("limit") String limit);
 
     @GET("/v1/cryptocurrency/info")
     Observable<Info> getCryptocurrencyInfo(@Query("symbol") String symbol);

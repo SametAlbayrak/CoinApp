@@ -39,7 +39,7 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
         if (getView() == null) return;
 
         apiClient.getRetrofitService()
-                .getMarketPairsLatest(start, limit)
+                .getListLatest(start, limit)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<CryptoList>() {
@@ -72,7 +72,7 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
     }
 
 
-    private void getCurrencyIconList(final List<Data> cList) {
+    public void getCurrencyIconList(final List<Data> cList) {
 
         apiClient.getRetrofitService()
                 .getCryptocurrencyInfo(prepareCurrencySymbols())

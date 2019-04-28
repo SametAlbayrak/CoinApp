@@ -34,7 +34,7 @@ public class FragmentTransactionUtils {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(animIn, animOut);
         transaction.replace(frameId, fragment);
-        transaction.addToBackStack(fragment.getClass().getSimpleName());
+        transaction.disallowAddToBackStack();
         transaction.commitAllowingStateLoss();
     }
 
