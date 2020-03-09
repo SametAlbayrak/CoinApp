@@ -1,7 +1,7 @@
 package com.samet.coinApp;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.samet.coinApp.ui.home.HomeFragment;
 import com.samet.coinApp.util.FragmentTransactionUtils;

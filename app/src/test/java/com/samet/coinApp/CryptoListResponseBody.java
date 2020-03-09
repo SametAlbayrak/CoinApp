@@ -1,6 +1,6 @@
 package com.samet.coinApp;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.google.gson.GsonBuilder;
 import com.samet.coinApp.models.CryptoList;
