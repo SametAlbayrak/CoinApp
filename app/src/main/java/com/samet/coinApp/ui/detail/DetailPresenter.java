@@ -3,6 +3,7 @@ package com.samet.coinApp.ui.detail;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+/*
 
 @Singleton
 public class DetailPresenter extends AbstractPresenter<DetailContract.View> implements DetailContract.Presenter {
@@ -24,3 +25,4 @@ public class DetailPresenter extends AbstractPresenter<DetailContract.View> impl
         getView().onGetArguments();
     }
 }
+*/

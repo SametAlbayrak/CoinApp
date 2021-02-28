@@ -16,9 +16,7 @@ import com.samet.coinApp.models.Data;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
+/*
 public class DetailFragment extends BaseFragment implements DetailContract.View {
 
     @BindView(R.id.ivCoinImage)
@@ -94,3 +92,4 @@ public class DetailFragment extends BaseFragment implements DetailContract.View 
 }
 
 
+*/

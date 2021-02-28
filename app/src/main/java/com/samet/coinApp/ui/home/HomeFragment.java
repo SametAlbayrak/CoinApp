@@ -18,16 +18,13 @@ import com.samet.coinApp.listeners.OnItemClickListener;
 import com.samet.coinApp.listeners.OnLoadMoreListener;
 import com.samet.coinApp.models.Data;
 import com.samet.coinApp.models.Info;
-import com.samet.coinApp.ui.detail.DetailFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
+/*
 
 public class HomeFragment extends BaseFragment implements HomeContract.View,
         OnLoadMoreListener,
@@ -154,3 +151,4 @@ public class HomeFragment extends BaseFragment implements HomeContract.View,
 
 }
 
+*/

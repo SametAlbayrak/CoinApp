@@ -6,18 +6,13 @@ import android.util.Log;
 import com.samet.coinApp.models.CryptoList;
 import com.samet.coinApp.models.Data;
 import com.samet.coinApp.models.Info;
-import com.samet.coinApp.network.APIClient;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+/*
 
 @Singleton
 public class HomePresenter extends AbstractPresenter<HomeContract.View> implements HomeContract.Presenter {
@@ -144,3 +139,4 @@ public class HomePresenter extends AbstractPresenter<HomeContract.View> implemen
 
 
 }
+*/
