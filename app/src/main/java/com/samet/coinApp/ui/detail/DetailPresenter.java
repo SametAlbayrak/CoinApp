@@ -1,7 +1,5 @@
 package com.samet.coinApp.ui.detail;
 
-import com.samet.coinApp.base.AbstractPresenter;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
 

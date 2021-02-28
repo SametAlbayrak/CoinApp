@@ -3,7 +3,6 @@ package com.samet.coinApp.ui.home;
 
 import android.util.Log;
 
-import com.samet.coinApp.base.AbstractPresenter;
 import com.samet.coinApp.models.CryptoList;
 import com.samet.coinApp.models.Data;
 import com.samet.coinApp.models.Info;

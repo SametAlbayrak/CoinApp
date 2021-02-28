@@ -10,5 +10,7 @@
     <string name="coin_volume">Volume : </string>
     <string name="coin_total_suply">Total Supply : </string>
     <string name="coin_market_pairs">Market Pairs : </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

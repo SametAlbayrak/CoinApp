@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/popularMoviesFragment">
+
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.steelsoft.movieshiltproject.view.PopularMoviesFragment"
+        android:label="PopularMoviesFragment" >
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <action
+        android:id="@+id/action_breakingNewsFragment_to_articleNewsFragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.steelsoft.movieshiltproject.view.NowPlayingFragment"
+        android:label="NowPlayingFragment">
+        <action
+            android:id="@+id/action_nowPlayingFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/topRatedFragment"
+        android:name="com.steelsoft.movieshiltproject.view.TopRatedFragment"
+        android:label="TopRatedFragment">
+        <action
+            android:id="@+id/action_topRatedFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/upcomingFragment"
+        android:name="com.steelsoft.movieshiltproject.view.UpcomingFragment"
+        android:label="UpcomingFragment">
+        <action
+            android:id="@+id/action_upcomingFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.steelsoft.movieshiltproject.view.MovieDetailsFragment"
+        android:label="MovieDetailsFragment" >
+        <argument
+            android:name="movieid"
+            app:argType="integer" />
+    </fragment>
+</navigation>

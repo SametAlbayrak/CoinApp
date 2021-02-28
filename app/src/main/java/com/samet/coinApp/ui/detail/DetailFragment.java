@@ -11,8 +11,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.samet.coinApp.R;
-import com.samet.coinApp.base.BaseFragment;
-import com.samet.coinApp.base.Constant;
 import com.samet.coinApp.custom.CustomDetailView;
 import com.samet.coinApp.models.Data;
 

@@ -14,14 +14,11 @@ import android.widget.Toast;
 
 import com.samet.coinApp.R;
 import com.samet.coinApp.adapters.HomeCoinAdapter;
-import com.samet.coinApp.base.BaseFragment;
-import com.samet.coinApp.base.Constant;
 import com.samet.coinApp.listeners.OnItemClickListener;
 import com.samet.coinApp.listeners.OnLoadMoreListener;
 import com.samet.coinApp.models.Data;
 import com.samet.coinApp.models.Info;
 import com.samet.coinApp.ui.detail.DetailFragment;
-import com.samet.coinApp.util.FragmentTransactionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
